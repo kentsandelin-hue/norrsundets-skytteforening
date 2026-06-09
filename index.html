@@ -1,52 +1,309 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Norrsundets Skytteförening</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background: #f7f7f7;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        .section {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Norrsundets Skytteförening</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+--primary: #7b1113;
+--primary-dark: #4f0507;
+--accent: #f0c040;
+--bg: #f5f5f5;
+--text: #222;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: var(--bg);
+color: var(--text);
+line-height: 1.6;
+}
+
+header {
+background: #000;
+color: #fff;
+}
+
+.header-inner {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0;
+}
+
+.hero {
+position: relative;
+min-height: 220px;
+display: flex;
+align-items: flex-end;
+padding: 24px 20px;
+background-size: cover;
+background-position: center;
+/* Byt ut nedan mot sökvägen till din header-bild */
+background-image: url("stuga.jpg");
+}
+
+.hero-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
+}
+
+.hero-content {
+position: relative;
+z-index: 1;
+max-width: 650px;
+}
+
+.hero-title {
+font-size: clamp(1.8rem, 3vw, 2.4rem);
+margin: 0 0 0.3rem;
+font-weight: 700;
+letter-spacing: 0.03em;
+}
+
+.hero-subtitle {
+margin: 0;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+
+nav {
+background: var(--primary-dark);
+}
+
+.nav-inner {
+max-width: 1100px;
+margin: 0 auto;
+display: flex;
+gap: 20px;
+padding: 8px 20px;
+}
+
+.nav-inner a {
+color: #fff;
+text-decoration: none;
+font-size: 0.95rem;
+padding: 4px 0;
+border-bottom: 2px solid transparent;
+}
+
+.nav-inner a:hover,
+.nav-inner a:focus {
+border-bottom-color: var(--accent);
+}
+
+main {
+max-width: 1100px;
+margin: 24px auto 40px;
+padding: 0 20px;
+display: grid;
+grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+gap: 24px;
+}
+
+@media (max-width: 800px) {
+main {
+grid-template-columns: minmax(0, 1fr);
+}
+}
+
+.card {
+background: #fff;
+border-radius: 10px;
+padding: 20px 22px;
+box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+h2 {
+margin-top: 0;
+font-size: 1.3rem;
+border-left: 4px solid var(--primary);
+padding-left: 10px;
+}
+
+h3 {
+margin-top: 1.2rem;
+font-size: 1.05rem;
+}
+
+ul {
+padding-left: 1.1rem;
+margin: 0.4rem 0 0.8rem;
+}
+
+.tagline {
+font-style: italic;
+color: #555;
+margin-bottom: 0.8rem;
+}
+
+.highlight {
+background: #fff7da;
+border-left: 4px solid var(--accent);
+padding: 10px 12px;
+border-radius: 6px;
+margin: 0.8rem 0 1rem;
+font-size: 0.95rem;
+}
+
+.badge {
+display: inline-block;
+background: var(--primary);
+color: #fff;
+border-radius: 999px;
+padding: 3px 10px;
+font-size: 0.8rem;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+}
+
+.contact-link {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+margin-top: 0.6rem;
+font-weight: 600;
+color: var(--primary-dark);
+text-decoration: none;
+}
+
+.contact-link::after {
+content: "→";
+font-size: 0.9rem;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+color: var(--primary);
+}
+
+footer {
+border-top: 1px solid #ddd;
+padding: 14px 20px 18px;
+font-size: 0.85rem;
+color: #666;
+text-align: center;
+background: #fafafa;
+}
+
+footer a {
+color: var(--primary-dark);
+text-decoration: none;
+}
+
+footer a:hover {
+text-decoration: underline;
+}
+
+/* Kontaktsektion (ankarlänk) */
+#kontakt {
+scroll-margin-top: 90px;
+}
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Norrsundets Skytteförening</h1>
-    <p>Välkommen till vår officiella hemsida</p>
+<div class="header-inner">
+<div class="hero">
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="badge">Skytteförening</div>
+<h1 class="hero-title">Norrsundets Skytteförening</h1>
+<p class="hero-subtitle">
+Träning, säkerhet och gemenskap inom pistolskytte i norra Gästrikland.
+</p>
+</div>
+</div>
+</div>
+<nav>
+<div class="nav-inner">
+<a href="#pistolskytte">Pistolskytte</a>
+<a href="#verksamhet">Verksamhet</a>
+<a href="#kontakt">Kontaktuppgifter</a>
+</div>
+</nav>
 </header>
 
-<div class="section">
-    <h2>Om föreningen</h2>
-    <p>Norrsundets Skytteförening är en aktiv och engagerad skytteförening i norra Gästrikland. Vi tränar och tävlar inom flera vapengrupper och välkomnar både nya och erfarna skyttar.</p>
-</div>
+<main>
+<section class="card" id="pistolskytte">
+<h2>Pistolskytte i Norrsundet</h2>
+<p class="tagline">
+Fokus på säkerhet, tydliga rutiner och utveckling – oavsett om du är nybörjare eller erfaren skytt.
+</p>
+<p>
+Norrsundets Skytteförening bedriver organiserad träning i pistolskytte med målet att kombinera
+<strong>säker vapenhantering</strong> med <strong>träffsäkerhet och precision</strong>. Vi följer gällande
+regelverk och arbetar aktivt för att skapa en trygg och välkomnande miljö på banan.
+</p>
+<p>
+Under våra träningar går vi igenom grundläggande skjutteknik, ställningar, avfyrning och avfyrningskontroll,
+samt hur du läser tavlan och analyserar dina skottbilder. För den som vill tävla finns möjlighet att delta i
+både interna och externa tävlingar.
+</p>
 
-<div class="section">
-    <h2>Träningstider</h2>
-    <p>Information om träningstider uppdateras löpande.</p>
-</div>
+<h3>Vad du kan förvänta dig</h3>
+<ul>
+<li>Instruktörer med lång erfarenhet av pistolskytte.</li>
+<li>Strukturerade träningspass med fokus på säkerhet och utveckling.</li>
+<li>Möjlighet att prova på skytte under ordnade former.</li>
+<li>Gemenskap och trivsel i en mindre förening med stark lokal förankring.</li>
+</ul>
 
-<div class="section">
-    <h2>Kontakt</h2>
-    <p>Mail: info@norrsundets-skytteforening.se</p>
+<div class="highlight">
+Är du nyfiken på pistolskytte och vill veta hur du kommer igång?
+<br>
+<a href="#kontakt" class="contact-link">Kontakta oss för mer information</a>
 </div>
+</section>
+
+<aside class="card" id="verksamhet">
+<h2>Verksamhet & tider</h2>
+<p>
+Föreningen bedriver huvudsakligen pistolskytte på vår bana i Norrsundet. Träningstider kan variera över året
+beroende på säsong och ljusförhållanden.
+</p>
+<p>
+Aktuella träningstider, prova‑på‑tillfällen och tävlingar kommuniceras via anslag, e‑post och föreningens
+övriga kanaler.
+</p>
+<p>
+Har du frågor om medlemskap, licensfrågor eller vilka vapenklasser vi skjuter i – hör av dig via
+<a href="#kontakt">kontaktuppgifterna nedan</a>.
+</p>
+</aside>
+</main>
+
+<section class="card" id="kontakt" style="max-width:1100px;margin:0 auto 40px;padding:20px 22px;">
+<h2>Kontaktuppgifter</h2>
+<p>
+För frågor om pistolskytte, medlemskap eller träningstider – kontakta föreningen via e‑post.
+</p>
+<p>
+<strong>E‑post:</strong>
+<a href="mailto:info@norrsundets-skytteforening.se">info@norrsundets-skytteforening.se</a>
+</p>
+<p>
+Om du vill bli kontaktad av oss kan du skicka ett kort mejl med ditt namn, telefonnummer och vad du är intresserad av,
+så återkommer vi så snart vi kan.
+</p>
+</section>
+
+<footer>
+© <span id="year"></span> Norrsundets Skytteförening.
+<a href="#kontakt">Kontaktuppgifter</a>
+</footer>
+
+<script>
+// Sätt aktuellt år i footern
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
