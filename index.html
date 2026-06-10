@@ -41,6 +41,7 @@ position: relative;
 min-height: 220px;
 display: flex;
 align-items: flex-end;
+justify-content: space-between;
 padding: 24px 20px;
 background-size: cover;
 background-position: center;
@@ -58,6 +59,18 @@ background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
 position: relative;
 z-index: 1;
 max-width: 650px;
+}
+
+.hero-banner {
+position: relative;
+z-index: 2;
+align-self: flex-end;
+}
+
+.hero-banner img {
+width: 140px;
+height: auto;
+display: block;
 }
 
 .hero-title {
@@ -214,9 +227,9 @@ scroll-margin-top: 10px;
 <div class="hero">
 <div class="hero-overlay"></div>
 <div class="hero-content">
-<p class="hero-subtitle">
-Träning, säkerhet och gemenskap inom pistolskytte i norra Gästrikland.
-</p>
+</div>
+<div class="hero-banner">
+<img src="grasrotenbanners_140x140.gif" alt="Gräsroten banner">
 </div>
 </div>
 </div>
@@ -231,7 +244,12 @@ Träning, säkerhet och gemenskap inom pistolskytte i norra Gästrikland.
 
 <main>
 <section class="card" id="pistolskytte">
-<h2>Pistolskytte i Norrsundet</h2>
+<h2>Norrsundets Skytteförening</h2>
+<p class="tagline">
+Träning, säkerhet och gemenskap inom pistolskytte i norra Gästrikland.
+</p>
+
+<h3>Pistolskytte i Norrsundet</h3>
 <p class="tagline">
 Fokus på säkerhet, tydliga rutiner och utveckling – oavsett om du är nybörjare eller erfaren skytt.
 </p>
